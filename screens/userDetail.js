@@ -20,33 +20,10 @@ class Detail extends Component {
       }
   };
 
-  constructor(){
-    super()
-    this.state = {
-      data: []
-    }  
-  }
-
-  componentDidMount(){
-    // const url = 'https://jsonplaceholder.typicode.com/photos';
-    const url = 'http://www.json-generator.com/api/json/get/ccLAsEcOSq?indent=1'
-    fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({
-        users: data.book_array
-      })
-      console.log('data ', data.book_array);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }
-
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello Detail</Text>
+        <Text style={ styles.text }>Hello Detail</Text>
       </View>
     );
   }
@@ -56,6 +33,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'tomato',
+    padding: 10
+  },
+  text: {
+    fontSize: 20,
   }
 });
 

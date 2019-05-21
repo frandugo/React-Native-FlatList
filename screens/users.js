@@ -11,7 +11,8 @@ import {
   YellowBox
 } from 'react-native';
 
-YellowBox.ignoreWarnings(['Remote debugger']);
+YellowBox.ignoreWarnings(['']);
+console.disableYellowBox = true
 
 class Users extends Component {
 
