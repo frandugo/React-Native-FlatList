@@ -3,6 +3,7 @@ import {
   StyleSheet, 
   Text, 
   View,
+  Image
 } from 'react-native';
 
 class Detail extends Component {
@@ -21,9 +22,18 @@ class Detail extends Component {
   };
 
   render() {
+    const { navigation } = this.props;
+    const image = navigation.getParam('image', '/');
+    const name = navigation.getParam('name', 'Francisco Duran');
+    const email = navigation.getParam('email', 'frandugo@ymail.com');
     return (
       <View style={styles.container}>
-        <Text style={ styles.text }>Hello Detail</Text>
+        <Image
+            style={{ width: 170, height: 170, margin: 5, borderRadius: 85  }}
+            source={{ uri: image }}
+        />
+        <Text style={ styles.name }>{ name }</Text>
+        <Text style={ styles.email }>{ email }</Text>
       </View>
     );
   }
@@ -31,11 +41,22 @@ class Detail extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
     flex: 1,
     backgroundColor: 'tomato',
+    justifyContent: 'center',
     padding: 10
   },
-  text: {
+  image: {
+
+  },
+  name: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  email: {
+    color: 'white',
     fontSize: 20,
   }
 });

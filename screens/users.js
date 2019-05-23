@@ -46,7 +46,14 @@ class Users extends Component {
   _renderItem = ({ item }) => {
     return(
       <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }}
-        onPress={() => this.props.navigation.navigate("Detail")} >
+      onPress={() => {
+        /* 1. Navigate to the Details route with params */
+        this.props.navigation.navigate('Detail', {
+          image: item.picture.large,
+          name: item.name.first + ' ' + item.name.last,
+          email: item.email,
+        });
+      }} >
           <Image
             style={{ width: 70, height: 70, margin: 5, borderRadius: 35  }}
             source={{ uri: item.picture.thumbnail }}
